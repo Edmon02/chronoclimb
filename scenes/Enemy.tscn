@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwy6jb2pwvitx"]
+
+[ext_resource type="Script" uid="uid://diluyf8xsrqfc" path="res://scripts/enemy.gd" id="1_3gvst"]
+[ext_resource type="Texture2D" uid="uid://hh7xaky86edc" path="res://sprites/assets/Tiles/tile_0109.png" id="2_55jtl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55jtl"]
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_3gvst")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_55jtl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_55jtl")
+
+[node name="GroundCheck" type="RayCast2D" parent="."]

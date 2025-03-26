@@ -1,0 +1,383 @@
+[gd_scene load_steps=14 format=3 uid="uid://ds3i7fq7v2p24"]
+
+[ext_resource type="Script" uid="uid://xa3sibv4q7t2" path="res://scripts/level_1.gd" id="1_6ovph"]
+[ext_resource type="PackedScene" uid="uid://d3rhkq20qrue8" path="res://scenes/Player.tscn" id="2_odhdn"]
+[ext_resource type="PackedScene" uid="uid://bi7w3v4jwhrka" path="res://scenes/StaticPlatform.tscn" id="3_dw26h"]
+[ext_resource type="PackedScene" uid="uid://dihumn5jj0hj1" path="res://scenes/CollapsingPlatform.tscn" id="4_lrl65"]
+[ext_resource type="PackedScene" uid="uid://dlyigd6efxytw" path="res://scenes/MovingPlatform.tscn" id="5_76388"]
+[ext_resource type="PackedScene" uid="uid://bi65oyrit4gbw" path="res://scenes/Hazard.tscn" id="6_svatc"]
+[ext_resource type="PackedScene" uid="uid://dja0iyqkowrmx" path="res://scenes/TimeCrystal.tscn" id="7_ecr63"]
+[ext_resource type="Texture2D" uid="uid://dkntlp1o16upq" path="res://sprites/assets/Tiles/tile_0045.png" id="8_kbo48"]
+[ext_resource type="Texture2D" uid="uid://ljeukkm656qq" path="res://sprites/assets/Tiles/tile_0029.png" id="9_4dyl1"]
+[ext_resource type="Texture2D" uid="uid://bodmpmtqin0y8" path="res://sprites/assets/Tiles/tile_0028.png" id="10_jxjwb"]
+[ext_resource type="PackedScene" uid="uid://dwy6jb2pwvitx" path="res://scenes/Enemy.tscn" id="11_4dyl1"]
+[ext_resource type="PackedScene" uid="uid://i1ltwsgdrxqc" path="res://scenes/MovingSpike.tscn" id="12_jxjwb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n34uq"]
+size = Vector2(32, 64)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_6ovph")
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_odhdn")]
+position = Vector2(100, 500)
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Props"]
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(100, 500)
+
+[node name="StaticPlatform" parent="." instance=ExtResource("3_dw26h")]
+position = Vector2(100, 520)
+
+[node name="StaticPlatform" parent="StaticPlatform" instance=ExtResource("3_dw26h")]
+position = Vector2(80, 0)
+
+[node name="StaticPlatform2" parent="StaticPlatform" instance=ExtResource("3_dw26h")]
+position = Vector2(100, 0)
+
+[node name="StaticPlatform3" parent="StaticPlatform" instance=ExtResource("3_dw26h")]
+position = Vector2(60, 0)
+
+[node name="StaticPlatform5" parent="StaticPlatform" instance=ExtResource("3_dw26h")]
+position = Vector2(120, 0)
+
+[node name="StaticPlatform4" parent="StaticPlatform" instance=ExtResource("3_dw26h")]
+position = Vector2(160, 0)
+
+[node name="StaticPlatform" parent="StaticPlatform/StaticPlatform4" instance=ExtResource("3_dw26h")]
+position = Vector2(80, 0)
+
+[node name="StaticPlatform2" parent="StaticPlatform/StaticPlatform4" instance=ExtResource("3_dw26h")]
+position = Vector2(100, 0)
+
+[node name="StaticPlatform3" parent="StaticPlatform/StaticPlatform4" instance=ExtResource("3_dw26h")]
+position = Vector2(60, 0)
+
+[node name="StaticPlatform6" parent="StaticPlatform" instance=ExtResource("3_dw26h")]
+position = Vector2(180, 0)
+
+[node name="StaticPlatform7" parent="StaticPlatform" instance=ExtResource("3_dw26h")]
+position = Vector2(140, 0)
+
+[node name="StaticPlatform8" parent="StaticPlatform" instance=ExtResource("3_dw26h")]
+position = Vector2(200, 0)
+
+[node name="StaticPlatform9" parent="StaticPlatform" instance=ExtResource("3_dw26h")]
+position = Vector2(20, 0)
+
+[node name="StaticPlatform10" parent="StaticPlatform" instance=ExtResource("3_dw26h")]
+position = Vector2(-20, 0)
+
+[node name="StaticPlatform11" parent="StaticPlatform" instance=ExtResource("3_dw26h")]
+position = Vector2(40, -20)
+
+[node name="StaticPlatform4" parent="StaticPlatform/StaticPlatform11" instance=ExtResource("3_dw26h")]
+position = Vector2(0, -40)
+
+[node name="StaticPlatform5" parent="StaticPlatform/StaticPlatform11" instance=ExtResource("3_dw26h")]
+position = Vector2(0, -20)
+
+[node name="StaticPlatform6" parent="StaticPlatform/StaticPlatform11" instance=ExtResource("3_dw26h")]
+position = Vector2(0, -80)
+
+[node name="StaticPlatform4" parent="StaticPlatform/StaticPlatform11/StaticPlatform6" instance=ExtResource("3_dw26h")]
+position = Vector2(0, -40)
+
+[node name="StaticPlatform5" parent="StaticPlatform/StaticPlatform11/StaticPlatform6" instance=ExtResource("3_dw26h")]
+position = Vector2(0, -20)
+
+[node name="StaticPlatform7" parent="StaticPlatform/StaticPlatform11" instance=ExtResource("3_dw26h")]
+position = Vector2(0, -60)
+
+[node name="StaticPlatform8" parent="StaticPlatform/StaticPlatform11" instance=ExtResource("3_dw26h")]
+position = Vector2(0, -160)
+
+[node name="StaticPlatform4" parent="StaticPlatform/StaticPlatform11/StaticPlatform8" instance=ExtResource("3_dw26h")]
+position = Vector2(0, -40)
+
+[node name="StaticPlatform5" parent="StaticPlatform/StaticPlatform11/StaticPlatform8" instance=ExtResource("3_dw26h")]
+position = Vector2(0, -20)
+
+[node name="StaticPlatform6" parent="StaticPlatform/StaticPlatform11/StaticPlatform8" instance=ExtResource("3_dw26h")]
+position = Vector2(0, -80)
+
+[node name="StaticPlatform4" parent="StaticPlatform/StaticPlatform11/StaticPlatform8/StaticPlatform6" instance=ExtResource("3_dw26h")]
+position = Vector2(0, -40)
+
+[node name="StaticPlatform5" parent="StaticPlatform/StaticPlatform11/StaticPlatform8/StaticPlatform6" instance=ExtResource("3_dw26h")]
+position = Vector2(0, -20)
+
+[node name="StaticPlatform6" parent="StaticPlatform/StaticPlatform11/StaticPlatform8/StaticPlatform6" instance=ExtResource("3_dw26h")]
+position = Vector2(-130, 410)
+
+[node name="StaticPlatform4" parent="StaticPlatform/StaticPlatform11/StaticPlatform8/StaticPlatform6/StaticPlatform6" instance=ExtResource("3_dw26h")]
+position = Vector2(0, -40)
+
+[node name="StaticPlatform5" parent="StaticPlatform/StaticPlatform11/StaticPlatform8/StaticPlatform6/StaticPlatform6" instance=ExtResource("3_dw26h")]
+position = Vector2(0, -20)
+
+[node name="StaticPlatform7" parent="StaticPlatform/StaticPlatform11/StaticPlatform8/StaticPlatform6" instance=ExtResource("3_dw26h")]
+position = Vector2(-130, 430)
+
+[node name="StaticPlatform7" parent="StaticPlatform/StaticPlatform11/StaticPlatform8" instance=ExtResource("3_dw26h")]
+position = Vector2(0, -60)
+
+[node name="StaticPlatform9" parent="StaticPlatform/StaticPlatform11" instance=ExtResource("3_dw26h")]
+position = Vector2(0, -140)
+
+[node name="StaticPlatform12" parent="StaticPlatform" instance=ExtResource("3_dw26h")]
+position = Vector2(40, 0)
+
+[node name="StaticPlatform13" parent="StaticPlatform" instance=ExtResource("3_dw26h")]
+position = Vector2(-70, 190)
+
+[node name="StaticPlatform" parent="StaticPlatform/StaticPlatform13" instance=ExtResource("3_dw26h")]
+position = Vector2(80, 0)
+
+[node name="StaticPlatform2" parent="StaticPlatform/StaticPlatform13" instance=ExtResource("3_dw26h")]
+position = Vector2(100, 0)
+
+[node name="StaticPlatform3" parent="StaticPlatform/StaticPlatform13" instance=ExtResource("3_dw26h")]
+position = Vector2(60, 0)
+
+[node name="StaticPlatform5" parent="StaticPlatform/StaticPlatform13" instance=ExtResource("3_dw26h")]
+position = Vector2(120, 0)
+
+[node name="StaticPlatform4" parent="StaticPlatform/StaticPlatform13" instance=ExtResource("3_dw26h")]
+position = Vector2(160, 0)
+
+[node name="StaticPlatform11" parent="StaticPlatform/StaticPlatform13" instance=ExtResource("3_dw26h")]
+position = Vector2(260, 0)
+
+[node name="StaticPlatform13" parent="StaticPlatform/StaticPlatform13" instance=ExtResource("3_dw26h")]
+position = Vector2(220, 0)
+
+[node name="StaticPlatform14" parent="StaticPlatform/StaticPlatform13" instance=ExtResource("3_dw26h")]
+position = Vector2(240, 0)
+
+[node name="StaticPlatform15" parent="StaticPlatform/StaticPlatform13" instance=ExtResource("3_dw26h")]
+position = Vector2(280, 0)
+
+[node name="StaticPlatform6" parent="StaticPlatform/StaticPlatform13" instance=ExtResource("3_dw26h")]
+position = Vector2(180, 0)
+
+[node name="StaticPlatform7" parent="StaticPlatform/StaticPlatform13" instance=ExtResource("3_dw26h")]
+position = Vector2(140, 0)
+
+[node name="StaticPlatform8" parent="StaticPlatform/StaticPlatform13" instance=ExtResource("3_dw26h")]
+position = Vector2(200, 0)
+
+[node name="StaticPlatform9" parent="StaticPlatform/StaticPlatform13" instance=ExtResource("3_dw26h")]
+position = Vector2(20, 0)
+
+[node name="StaticPlatform10" parent="StaticPlatform/StaticPlatform13" instance=ExtResource("3_dw26h")]
+position = Vector2(-20, 0)
+
+[node name="StaticPlatform12" parent="StaticPlatform/StaticPlatform13" instance=ExtResource("3_dw26h")]
+position = Vector2(40, 0)
+
+[node name="StaticPlatform16" parent="StaticPlatform/StaticPlatform13" instance=ExtResource("3_dw26h")]
+position = Vector2(320, 0)
+
+[node name="StaticPlatform" parent="StaticPlatform/StaticPlatform13/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(80, 0)
+
+[node name="StaticPlatform2" parent="StaticPlatform/StaticPlatform13/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(100, 0)
+
+[node name="StaticPlatform3" parent="StaticPlatform/StaticPlatform13/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(60, 0)
+
+[node name="StaticPlatform5" parent="StaticPlatform/StaticPlatform13/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(120, 0)
+
+[node name="StaticPlatform4" parent="StaticPlatform/StaticPlatform13/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(160, 0)
+
+[node name="StaticPlatform11" parent="StaticPlatform/StaticPlatform13/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(260, 0)
+
+[node name="StaticPlatform13" parent="StaticPlatform/StaticPlatform13/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(220, 0)
+
+[node name="StaticPlatform14" parent="StaticPlatform/StaticPlatform13/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(240, 0)
+
+[node name="StaticPlatform15" parent="StaticPlatform/StaticPlatform13/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(280, 0)
+
+[node name="StaticPlatform6" parent="StaticPlatform/StaticPlatform13/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(180, 0)
+
+[node name="StaticPlatform7" parent="StaticPlatform/StaticPlatform13/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(140, 0)
+
+[node name="StaticPlatform8" parent="StaticPlatform/StaticPlatform13/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(200, 0)
+
+[node name="StaticPlatform9" parent="StaticPlatform/StaticPlatform13/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(20, 0)
+
+[node name="StaticPlatform10" parent="StaticPlatform/StaticPlatform13/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(-20, 0)
+
+[node name="StaticPlatform12" parent="StaticPlatform/StaticPlatform13/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(40, 0)
+
+[node name="StaticPlatform17" parent="StaticPlatform/StaticPlatform13" instance=ExtResource("3_dw26h")]
+position = Vector2(640, 0)
+
+[node name="StaticPlatform" parent="StaticPlatform/StaticPlatform13/StaticPlatform17" instance=ExtResource("3_dw26h")]
+position = Vector2(80, 0)
+
+[node name="StaticPlatform2" parent="StaticPlatform/StaticPlatform13/StaticPlatform17" instance=ExtResource("3_dw26h")]
+position = Vector2(100, 0)
+
+[node name="StaticPlatform3" parent="StaticPlatform/StaticPlatform13/StaticPlatform17" instance=ExtResource("3_dw26h")]
+position = Vector2(60, 0)
+
+[node name="StaticPlatform5" parent="StaticPlatform/StaticPlatform13/StaticPlatform17" instance=ExtResource("3_dw26h")]
+position = Vector2(120, 0)
+
+[node name="StaticPlatform4" parent="StaticPlatform/StaticPlatform13/StaticPlatform17" instance=ExtResource("3_dw26h")]
+position = Vector2(160, 0)
+
+[node name="StaticPlatform11" parent="StaticPlatform/StaticPlatform13/StaticPlatform17" instance=ExtResource("3_dw26h")]
+position = Vector2(260, 0)
+
+[node name="StaticPlatform13" parent="StaticPlatform/StaticPlatform13/StaticPlatform17" instance=ExtResource("3_dw26h")]
+position = Vector2(220, 0)
+
+[node name="StaticPlatform14" parent="StaticPlatform/StaticPlatform13/StaticPlatform17" instance=ExtResource("3_dw26h")]
+position = Vector2(240, 0)
+
+[node name="StaticPlatform15" parent="StaticPlatform/StaticPlatform13/StaticPlatform17" instance=ExtResource("3_dw26h")]
+position = Vector2(280, 0)
+
+[node name="StaticPlatform6" parent="StaticPlatform/StaticPlatform13/StaticPlatform17" instance=ExtResource("3_dw26h")]
+position = Vector2(180, 0)
+
+[node name="StaticPlatform7" parent="StaticPlatform/StaticPlatform13/StaticPlatform17" instance=ExtResource("3_dw26h")]
+position = Vector2(140, 0)
+
+[node name="StaticPlatform8" parent="StaticPlatform/StaticPlatform13/StaticPlatform17" instance=ExtResource("3_dw26h")]
+position = Vector2(200, 0)
+
+[node name="StaticPlatform9" parent="StaticPlatform/StaticPlatform13/StaticPlatform17" instance=ExtResource("3_dw26h")]
+position = Vector2(20, 0)
+
+[node name="StaticPlatform10" parent="StaticPlatform/StaticPlatform13/StaticPlatform17" instance=ExtResource("3_dw26h")]
+position = Vector2(-20, 0)
+
+[node name="StaticPlatform12" parent="StaticPlatform/StaticPlatform13/StaticPlatform17" instance=ExtResource("3_dw26h")]
+position = Vector2(40, 0)
+
+[node name="StaticPlatform16" parent="StaticPlatform/StaticPlatform13/StaticPlatform17" instance=ExtResource("3_dw26h")]
+position = Vector2(320, 0)
+
+[node name="StaticPlatform" parent="StaticPlatform/StaticPlatform13/StaticPlatform17/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(80, 0)
+
+[node name="StaticPlatform2" parent="StaticPlatform/StaticPlatform13/StaticPlatform17/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(100, 0)
+
+[node name="StaticPlatform3" parent="StaticPlatform/StaticPlatform13/StaticPlatform17/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(60, 0)
+
+[node name="StaticPlatform5" parent="StaticPlatform/StaticPlatform13/StaticPlatform17/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(120, 0)
+
+[node name="StaticPlatform4" parent="StaticPlatform/StaticPlatform13/StaticPlatform17/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(160, 0)
+
+[node name="StaticPlatform11" parent="StaticPlatform/StaticPlatform13/StaticPlatform17/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(260, 0)
+
+[node name="StaticPlatform13" parent="StaticPlatform/StaticPlatform13/StaticPlatform17/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(220, 0)
+
+[node name="StaticPlatform14" parent="StaticPlatform/StaticPlatform13/StaticPlatform17/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(240, 0)
+
+[node name="StaticPlatform15" parent="StaticPlatform/StaticPlatform13/StaticPlatform17/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(280, 0)
+
+[node name="StaticPlatform6" parent="StaticPlatform/StaticPlatform13/StaticPlatform17/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(180, 0)
+
+[node name="StaticPlatform7" parent="StaticPlatform/StaticPlatform13/StaticPlatform17/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(140, 0)
+
+[node name="StaticPlatform8" parent="StaticPlatform/StaticPlatform13/StaticPlatform17/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(200, 0)
+
+[node name="StaticPlatform9" parent="StaticPlatform/StaticPlatform13/StaticPlatform17/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(20, 0)
+
+[node name="StaticPlatform10" parent="StaticPlatform/StaticPlatform13/StaticPlatform17/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(-20, 0)
+
+[node name="StaticPlatform12" parent="StaticPlatform/StaticPlatform13/StaticPlatform17/StaticPlatform16" instance=ExtResource("3_dw26h")]
+position = Vector2(40, 0)
+
+[node name="CollapsingPlatform" parent="." instance=ExtResource("4_lrl65")]
+position = Vector2(789, 568)
+
+[node name="MovingPlatform" parent="." instance=ExtResource("5_76388")]
+position = Vector2(500, 599)
+
+[node name="Hazard" parent="." groups=["Hazard"] instance=ExtResource("6_svatc")]
+position = Vector2(887, 575)
+
+[node name="TimeCrystal" parent="." instance=ExtResource("7_ecr63")]
+position = Vector2(241, 501)
+
+[node name="Door" type="StaticBody2D" parent="."]
+position = Vector2(1008, 534)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+shape = SubResource("RectangleShape2D_n34uq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Door"]
+modulate = Color(0.00494953, 0.788427, 5.39064e-06, 1)
+texture = ExtResource("8_kbo48")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 33.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(321, 145)
+texture = ExtResource("9_4dyl1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Sprite2D"]
+z_index = -1
+position = Vector2(32, 0)
+texture = ExtResource("9_4dyl1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(337, 145)
+texture = ExtResource("10_jxjwb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/Sprite2D2"]
+z_index = -1
+position = Vector2(32, 0)
+texture = ExtResource("10_jxjwb")
+
+[node name="Enemy" parent="." instance=ExtResource("11_4dyl1")]
+visible = false
+position = Vector2(240, 425)
+
+[node name="MovingSpike" parent="." instance=ExtResource("12_jxjwb")]

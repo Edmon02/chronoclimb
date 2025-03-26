@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://6f44v1007ljv"]
+
+[ext_resource type="Script" uid="uid://d3e7bjmsjil45" path="res://scripts/landing_page.gd" id="1_x1ckh"]
+[ext_resource type="Texture2D" uid="uid://ttnysrbmteot" path="res://sprites/assets/image.jpg" id="2_fog7a"]
+[ext_resource type="FontFile" uid="uid://c6xhaklxunrpr" path="res://sprites/fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="3_fog7a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mykv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fog7a"]
+
+[node name="LandingPage" type="Node2D"]
+position = Vector2(635, 458)
+script = ExtResource("1_x1ckh")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_fog7a")
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = -285.0
+offset_top = -290.0
+offset_right = 291.0
+offset_bottom = -242.0
+theme_override_colors/font_color = Color(0, 0.411711, 0.411711, 1)
+theme_override_fonts/font = ExtResource("3_fog7a")
+theme_override_font_sizes/font_size = 48
+text = "Chrono Climb"
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -40.0
+offset_right = 100.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_fog7a")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_2mykv")
+text = "Play"
+metadata/_edit_use_anchors_ = true
+
+[node name="SettingsButton" type="Button" parent="."]
+offset_left = -100.0
+offset_top = 54.0
+offset_right = 100.0
+offset_bottom = 134.0
+theme_override_fonts/font = ExtResource("3_fog7a")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_fog7a")
+text = "Settings"
+metadata/_edit_use_anchors_ = true

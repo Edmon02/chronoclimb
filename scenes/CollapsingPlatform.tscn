@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dihumn5jj0hj1"]
+
+[ext_resource type="Script" uid="uid://cxv0bp511ce7l" path="res://scripts/collapsing_platform.gd" id="1_4ay4g"]
+[ext_resource type="Texture2D" uid="uid://b1doran6yc4op" path="res://sprites/assets/Tiles/tile_0017.png" id="2_kipy4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwaof"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ay4g"]
+
+[node name="CollapsingPlatform" type="StaticBody2D"]
+script = ExtResource("1_4ay4g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pwaof")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, 4.76837e-07)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_kipy4")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_4ay4g")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

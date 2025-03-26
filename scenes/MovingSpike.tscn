@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://i1ltwsgdrxqc"]
+
+[ext_resource type="Script" uid="uid://383e837dn03x" path="res://scripts/moving_spike.gd" id="1_nlifj"]
+[ext_resource type="Texture2D" uid="uid://bxh73dwa5nda3" path="res://sprites/assets/Tiles/tile_0030.png" id="1_weram"]
+
+[sub_resource type="Curve2D" id="Curve2D_jk74o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_weram"]
+
+[node name="MovingSpike" type="Path2D"]
+position = Vector2(703, 595)
+curve = SubResource("Curve2D_jk74o")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+script = ExtResource("1_nlifj")
+
+[node name="DetectionArea" type="Area2D" parent="PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/DetectionArea"]
+shape = SubResource("RectangleShape2D_weram")
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/DetectionArea"]
+texture = ExtResource("1_weram")
+
+[connection signal="body_entered" from="PathFollow2D/DetectionArea" to="PathFollow2D" method="_on_detection_area_body_entered"]

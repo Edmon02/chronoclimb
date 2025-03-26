@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlyigd6efxytw"]
+
+[ext_resource type="Script" uid="uid://ctjsgityu3dwn" path="res://scripts/moving_platform.gd" id="1_6xvjr"]
+[ext_resource type="Texture2D" uid="uid://b44vwkyx2do6s" path="res://sprites/assets/Tiles/tile_0070.png" id="2_2onec"]
+
+[sub_resource type="Curve2D" id="Curve2D_2onec"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100, 0)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2onec"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r30p7"]
+
+[node name="MovingPlatform" type="Path2D" groups=["Hazard"]]
+curve = SubResource("Curve2D_2onec")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+script = ExtResource("1_6xvjr")
+
+[node name="Platform" type="StaticBody2D" parent="PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Platform"]
+shape = SubResource("RectangleShape2D_2onec")
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/Platform"]
+position = Vector2(3.72529e-09, 3.72529e-09)
+scale = Vector2(1.24219, 1.24219)
+texture = ExtResource("2_2onec")
+
+[node name="DetectionArea" type="Area2D" parent="PathFollow2D/Platform"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Platform/DetectionArea"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_r30p7")
+
+[connection signal="body_entered" from="PathFollow2D/Platform/DetectionArea" to="PathFollow2D" method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="PathFollow2D/Platform/DetectionArea" to="PathFollow2D" method="_on_detection_area_body_exited"]
