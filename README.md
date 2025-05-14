@@ -35,7 +35,7 @@ ChronoClimb is a precision platformer built with Godot Engine that combines clas
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/chronoclimb.git
+   git clone https://github.com/Edmon02/chronoclimb.git
    ```
 2. Open the project in Godot Engine:
    - Launch Godot
